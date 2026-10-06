@@ -1,11 +1,13 @@
 # K2SO Rat's Fixes
 
 A collection of fixes for [Krastorio 2](https://mods.factorio.com/mod/Krastorio2) +
-Space Age with [Krastorio 2 Spaced Out](https://mods.factorio.com/mod/Krastorio2-spaced-out)
-and its [tweaks mod](https://mods.factorio.com/mod/Krastorio2-spaced-out-tweaks).
-Currently one fix: crafted biomass no longer inherits parent spoilage, so the
-recursive biomass loop in the bioprocessing facility keeps itself fresh instead
-of rotting the whole bio pipeline at once.
+Space Age with [Krastorio 2 Spaced Out](https://mods.factorio.com/mod/Krastorio2-spaced-out),
+its [tweaks mod](https://mods.factorio.com/mod/Krastorio2-spaced-out-tweaks) and
+the nulls-k2so-tweaks / xy-k2so-enhancements-nulls-fork patch mods found
+bugged by a stack audit (see the changelog and `patches/upstream/README.md`).
+The headline fix remains: crafted biomass no longer inherits parent spoilage,
+so the recursive biomass loop in the bioprocessing facility keeps itself
+fresh instead of rotting the whole bio pipeline at once.
 
 ## The problem
 
@@ -45,6 +47,26 @@ Verified end-to-end: with the fix, crafting from 90 % spoiled seed biomass
 produces output with `spoil_tick = craft_tick + 216000` (a full 1 h timer),
 on every loop cycle.
 
+`fixes/` additionally compensates, at data-final-fixes time, audit findings in
+the surrounding mods (each with an e2e under `tests/proto/` or `tests/lua/`):
+
+- **asteroid-radioactive-resistance** — keeps K2SO's 100% `kr-radioactive`
+  asteroid immunity from being silently erased by nulls-k2so-tweaks'
+  standardize pass; duplicate entries are merged.
+- **maraxsis-sand-item-name** — writes maraxsis' `SAND_ITEM_NAME` into the
+  mod-data `.data` table it is actually read from, instead of the prototype
+  root nulls writes it to; removes the stray root key.
+- **lab-icons-positioning** — applies K2SO's own (shadowed, never active)
+  widened lab icon layout once more than 24 science packs are in play.
+- **spoil-migration-cycles** — breaks two-item spoil cycles that nulls'
+  always-true replace_all guard would create when a replacement item
+  spoils back into the old one.
+- **advanced-centrifuge-atom-forge** — applies xy's computed-but-unused
+  `ingred1` (2x atan-atom-forge) so recipe and tech tree agree.
+
+`patches/upstream/` carries ready-to-apply patches for the same issues in
+the original mods, where forensics credits belong.
+
 Without the K2SO stack installed this mod does nothing.
 
 ## Installation
@@ -56,6 +78,13 @@ directory, or copy `releases/k2so-rats-fixes_*.zip` there manually.
 
 ```
 make test-e2e
+```
+
+```
+make test-e2e      # gameplay benchmark (biomass pipeline)
+make test-proto    # data-stage checks for every fixes/* entry
+make test-lua      # lua-level checks against the real xy fork zip
+make test-patches  # patches/upstream apply-check against installed zips
 ```
 
 Runs the real game headless (no window) against the full K2SO mod stack

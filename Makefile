@@ -1,4 +1,4 @@
-.PHONY: test-e2e test-proto lint thumbnail package install
+.PHONY: test-e2e test-proto test-lua test-patches lint thumbnail package install
 
 # Path to the Factorio binary (auto-detected from Steam install on macOS)
 FACTORIO_BIN ?= $(HOME)/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/MacOS/factorio
@@ -32,6 +32,9 @@ test-proto:
 test-lua:
 	lua tests/lua/run-basic-card-strips.lua
 	lua tests/lua/run-workshop-strip.lua
+
+test-patches:
+	sh tests/check-upstream-patches.sh
 
 lint:
 	luacheck data-final-fixes.lua fixes/*.lua tests/scenario/biomass-stall/control.lua --no-config || true

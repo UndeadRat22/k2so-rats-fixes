@@ -1,4 +1,15 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.0
+Date: 2026-10-06
+  Bugfixes:
+    - Asteroids stay kr-radioactive immune: K2SO's 100% immunity was being erased by nulls-k2so-tweaks' resistance standardize pass; restored exactly one entry per asteroid at 100%.
+    - maraxsis keeps using the right sand: nulls-k2so-tweaks wrote SAND_ITEM_NAME onto the mod-data prototype root instead of the .data table maraxsis reads; corrected and stray key removed.
+    - Labs render >24 science packs: K2SO's widened icons_positioning fallback was shadowed by block-local declarations and never active; now applied when the pack count exceeds 24.
+    - Two-item spoil cycles from nulls' item migration are broken (its always-true guard is enforced from outside: the 1-tick migration side is cleared when the new item spoils back).
+    - The advanced centrifuge recipe consumes atan-atom-forges when atan-nuclear-science is present, matching the technology tree (xy computed the ingredient but never used it).
+  Features:
+    - Prototype e2e suite (tests/proto) covering every fix against the real mod stack, lua-level checks against the installed xy fork (tests/lua), and patches/upstream/ with ready-to-apply patches for the source mods incl. an apply checker.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.0
 Date: 2026-10-06
   Features:

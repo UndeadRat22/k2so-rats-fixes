@@ -2,8 +2,8 @@
 --
 -- xy's patches/technology.lua is executed UNCHANGED (read straight out of
 -- the installed zip) against mock technologies, then PATCHED (via
--- patches/upstream/xy-workshop-strip.patch applied to a temp copy of the
--- zip) and executed again. The original must demonstrate the over-strip
+-- patches/upstream/xy-k2so-enhancements-nulls-fork/workshop-strip.patch
+-- applied to a temp copy of the zip) and executed again. The original must demonstrate the over-strip
 -- (workshop card removed from a tech that contains automation-science-pack
 -- not in first position); the patched run must keep it.
 --
@@ -15,7 +15,7 @@ local env_mod = require("xy-env")
 
 local zip = arg[1]
   or (os.getenv("HOME") .. "/Library/Application Support/factorio/mods/xy-k2so-enhancements-nulls-fork_0.8.5.zip")
-local patch_file = script_dir:gsub("tests/lua/$", "patches/upstream/xy-workshop-strip.patch")
+local patch_file = script_dir:gsub("tests/lua/$", "patches/upstream/xy-k2so-enhancements-nulls-fork/workshop-strip.patch")
 if patch_file:sub(1, 1) ~= "/" then
   local pwd = assert(io.popen("pwd")):read("l")
   patch_file = pwd .. "/" .. patch_file
