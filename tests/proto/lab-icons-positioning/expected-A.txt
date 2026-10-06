@@ -1,0 +1,7 @@
+# Bug state: >24 packs (stub pushed it past 24) but the compact 6-per-row
+# layout is still applied to all four labs (K2SO's dead branch never fires).
+E2E_CHECK::lab\.count=2[6-9]
+E2E_CHECK::lab\.max_icons_per_row=6
+E2E_CHECK::kr-advanced-lab\.max_icons_per_row=6
+E2E_CHECK::biolab\.max_icons_per_row=6
+E2E_CHECK::kr-singularity-lab\.max_icons_per_row=6

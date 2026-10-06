@@ -1,0 +1,9 @@
+{
+  "name": "aaa-e2e-lab-inputs",
+  "version": "0.0.1",
+  "title": "E2E stub: push K2SO lab inputs over 24 packs",
+  "author": "k2so-rats-fixes tests",
+  "factorio_version": "2.1",
+  "dependencies": [ "base" ],
+  "description": "Adds dummy tool science packs and appends them to lab inputs early in data-final-fixes, simulating a >24-pack mod setup."
+}
