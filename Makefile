@@ -4,7 +4,7 @@
 FACTORIO_BIN ?= $(HOME)/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/MacOS/factorio
 
 VERSION := $(shell sed -n 's/.*"version": "\([^"]*\)".*/\1/p' info.json)
-MOD_NAME := K2SO-Fixes
+MOD_NAME := k2so-rats-fixes
 PACKAGE_DIR := $(MOD_NAME)_$(VERSION)
 RELEASES_DIR := releases
 PACKAGE_ZIP := $(RELEASES_DIR)/$(PACKAGE_DIR).zip

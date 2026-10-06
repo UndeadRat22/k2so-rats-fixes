@@ -1,4 +1,4 @@
--- K2SO Fixes
+-- K2SO Rat's Fixes (k2so-rats-fixes)
 --
 -- Problem (K2 + Spaced Out + K2SO-tweaks):
 --   Krastorio2-spaced-out-tweaks makes kr-biomass spoil (1 hour into
@@ -43,7 +43,7 @@ for _, def in ipairs(FRESHEN) do
   end
 end
 
-log("[K2SO-Fixes] freshened " .. patched .. " recipe products")
+log("[k2so-rats-fixes] freshened " .. patched .. " recipe products")
 if patched == 0 then
-  log("[K2SO-Fixes] nothing to patch; are Krastorio2/Krastorio2-spaced-out enabled?")
+  log("[k2so-rats-fixes] nothing to patch; are Krastorio2/Krastorio2-spaced-out enabled?")
 end

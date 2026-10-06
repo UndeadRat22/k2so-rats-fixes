@@ -1,4 +1,4 @@
-# K2SO Fixes
+# K2SO Rat's Fixes
 
 A collection of fixes for [Krastorio 2](https://mods.factorio.com/mod/Krastorio2) +
 Space Age with [Krastorio 2 Spaced Out](https://mods.factorio.com/mod/Krastorio2-spaced-out)
@@ -50,7 +50,7 @@ Without the K2SO stack installed this mod does nothing.
 ## Installation
 
 `make install` packages the mod and copies the zip into your Factorio mods
-directory, or copy `releases/K2SO-Fixes_*.zip` there manually.
+directory, or copy `releases/k2so-rats-fixes_*.zip` there manually.
 
 ## Testing
 
@@ -58,8 +58,9 @@ directory, or copy `releases/K2SO-Fixes_*.zip` there manually.
 make test-e2e
 ```
 
-Runs the real game headless (no window) against the exact K2SO mod stack in
-your mods directory, fully isolated in a temp work dir:
+Runs the real game headless (no window) against the full K2SO mod stack
+from your mods directory (both tweaks mods, the nulls fork enhancements
+and PlanetsLib included), fully isolated in a temp work dir:
 
 - **Phase A** (no fix): places a powered bioprocessing facility, seeds it
   with 90 % spoiled biomass, crafts, measures the output — expects the

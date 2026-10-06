@@ -16,7 +16,7 @@
 -- Expected verdicts:
 --   BUG_REPRODUCED (no fix mod): outputs inherit parent spoilage and the
 --     freshness never recovers through the loop -> pipeline stalls.
---   FIXED (with K2SO-Fixes): outputs are always fully fresh.
+--   FIXED (with k2so-rats-fixes): outputs are always fully fresh.
 
 local RESULT_FILE = "e2e-biomass/result.json"
 local TIMEOUT_TICK = 15000
@@ -128,7 +128,7 @@ local function finish(g, verdict, message)
   local result = {
     verdict = verdict,
     message = message,
-    fix_mod_present = (script.active_mods["K2SO-Fixes"] ~= nil),
+    fix_mod_present = (script.active_mods["k2so-rats-fixes"] ~= nil),
     active_mods = script.active_mods,
     tick = game.tick,
     item_info = {

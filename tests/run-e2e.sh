@@ -1,7 +1,8 @@
 #!/bin/sh
-# E2E test for K2SO-Fixes with the full K2SO + tweaks stack
-# (Krastorio2 2.1.3, Krastorio2-spaced-out 2.0.17, k2so-assets,
-# Krastorio2-spaced-out-tweaks, and their dependencies).
+# E2E test for k2so-rats-fixes with the full K2SO stack as actually used in
+# game (Krastorio2, Krastorio2-spaced-out, k2so-assets,
+# Krastorio2-spaced-out-tweaks, nulls-k2so-tweaks,
+# xy-k2so-enhancements-nulls-fork, PlanetsLib, and their dependencies).
 #
 # Phase A runs WITHOUT the fix mod and expects the bug to be reproduced
 # (crafted biomass inherits parent spoilage, the loop never recovers).
@@ -37,12 +38,17 @@ prepare_work_dir() {
     "$FACTORIO_MODS"/ChangeInserterDropLane_*.zip \
     "$FACTORIO_MODS"/k2so-assets_*.zip \
     "$FACTORIO_MODS"/Krastorio2-spaced-out_*.zip \
-    "$FACTORIO_MODS"/Krastorio2-spaced-out-tweaks_*.zip; do
+    "$FACTORIO_MODS"/Krastorio2-spaced-out-tweaks_*.zip \
+    "$FACTORIO_MODS"/nulls-k2so-tweaks_*.zip \
+    "$FACTORIO_MODS"/xy-k2so-enhancements-nulls-fork_*.zip \
+    "$FACTORIO_MODS"/PlanetsLib_*.zip; do
     [ -f "$f" ] && ln -sfn "$f" "$WORK/mods/$(basename "$f")"
   done
 
   # Krastorio2-spaced-out_*.zip deliberately does NOT match
   # Krastorio2-spaced-out-tweaks (underscore vs dash).
+  # nulls-k2so-tweaks + xy-k2so-enhancements-nulls-fork + PlanetsLib are
+  # included to mirror the actual runtime stack this fix must survive.
 
   cat > "$WORK/config.ini" <<EOF
 [path]
@@ -62,9 +68,11 @@ import json, sys
 mods = ["base", "space-age", "quality", "elevated-rails",
         "Krastorio2", "Krastorio2Assets", "Krastorio2MenuSimulations",
         "flib", "ChangeInserterDropLane", "Krastorio2-spaced-out",
-        "k2so-assets", "Krastorio2-spaced-out-tweaks"]
+        "k2so-assets", "Krastorio2-spaced-out-tweaks",
+        "nulls-k2so-tweaks", "xy-k2so-enhancements-nulls-fork",
+        "PlanetsLib"]
 if sys.argv[2] == "yes":
-    mods.append("K2SO-Fixes")
+    mods.append("k2so-rats-fixes")
 with open(sys.argv[1], "w") as f:
     json.dump({"mods": [{"name": m, "enabled": True} for m in mods]}, f, indent=2)
 EOF
@@ -111,7 +119,7 @@ if r["verdict"] != sys.argv[2]:
 EOF
 }
 
-echo "=== K2SO-Fixes e2e ==="
+echo "=== k2so-rats-fixes e2e ==="
 
 echo "=== Phase A: no fix mod (expect BUG_REPRODUCED) ==="
 prepare_work_dir
@@ -121,8 +129,8 @@ print_result A BUG_REPRODUCED
 echo "Phase A passed (bug reproduced)."
 
 echo
-echo "=== Phase B: with K2SO-Fixes (expect FIXED) ==="
-ln -sfn "$MOD_DIR" "$WORK/mods/K2SO-Fixes"
+echo "=== Phase B: with k2so-rats-fixes (expect FIXED) ==="
+ln -sfn "$MOD_DIR" "$WORK/mods/k2so-rats-fixes"
 write_mod_list yes
 run_game B
 print_result B FIXED
