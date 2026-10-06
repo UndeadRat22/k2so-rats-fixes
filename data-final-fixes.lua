@@ -49,3 +49,4 @@ if patched == 0 then
 end
 
 require("fixes.asteroid-radioactive-resistance")
+require("fixes.maraxsis-sand-item-name")

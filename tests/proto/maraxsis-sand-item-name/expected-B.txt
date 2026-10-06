@@ -1,0 +1,4 @@
+# Fixed state: the value lives in .data (where maraxsis reads it) and the
+# stray root key is gone.
+E2E_CHECK::maraxsis-constants\.root_key=nil
+E2E_CHECK::maraxsis-constants\.data_key=sand
