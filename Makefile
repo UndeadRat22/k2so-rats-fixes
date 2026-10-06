@@ -1,4 +1,4 @@
-.PHONY: test-e2e lint thumbnail package install
+.PHONY: test-e2e test-proto lint thumbnail package install
 
 # Path to the Factorio binary (auto-detected from Steam install on macOS)
 FACTORIO_BIN ?= $(HOME)/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/MacOS/factorio
@@ -25,8 +25,11 @@ endif
 test-e2e:
 	FACTORIO_BIN="$(FACTORIO_BIN)" sh tests/run-e2e.sh
 
+test-proto:
+	FACTORIO_BIN="$(FACTORIO_BIN)" sh tests/run-proto.sh --all
+
 lint:
-	luacheck data-final-fixes.lua tests/scenario/biomass-stall/control.lua --no-config || true
+	luacheck data-final-fixes.lua fixes/*.lua tests/scenario/biomass-stall/control.lua --no-config || true
 
 thumbnail:
 	@mkdir -p scripts/.src
@@ -44,6 +47,7 @@ package:
 # the mod portal, and LICENSE must accompany MIT-licensed distributions.
 # README.md, tests/, scripts/ and the Makefile are repo-only and stay out.
 	@cp -r changelog.txt data-final-fixes.lua info.json LICENSE thumbnail.png $(PACKAGE_DIR)/
+	@[ ! -d fixes ] || cp -r fixes $(PACKAGE_DIR)/
 	@zip -r $(PACKAGE_DIR).zip $(PACKAGE_DIR) >/dev/null
 	@mv $(PACKAGE_DIR).zip $(RELEASES_DIR)/
 	@rm -rf $(PACKAGE_DIR)

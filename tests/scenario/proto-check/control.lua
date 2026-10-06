@@ -1,0 +1,5 @@
+-- Minimal scenario used purely as a vehicle for --scenario2map data loads.
+-- Data-stage prototype checks are performed by the zzz-* assert mods that
+-- accompany each test under tests/proto/; this control stage intentionally
+-- does nothing (scenario2map never runs it, and nothing needs verification
+-- at runtime for prototype-level fixes).
