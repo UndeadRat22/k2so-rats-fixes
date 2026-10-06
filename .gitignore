@@ -1,0 +1,5 @@
+releases/
+*.zip
+.kimchi/
+.DS_Store
+tests/.test-data/

@@ -1,0 +1,8 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2026-10-06
+  Features:
+    - Initial release.
+    - Biomass crafted by the recursive kr-biomass recipe (bioprocessing facility) now spawns fully fresh instead of inheriting the parent spoilage, fixing the bio pipeline stall that eventually rots all biomass at once.
+    - Biomass from egg crushing (kr-biter-biomass, kr-pentapod-biomass) spawns fully fresh.
+    - Fertilizer (kr-fertilizer, crafted from biomass) spawns fully fresh.

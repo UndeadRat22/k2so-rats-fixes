@@ -1,0 +1,14 @@
+{
+  "name": "K2SO-Fixes",
+  "version": "1.0.0",
+  "title": "K2SO Fixes",
+  "author": "deadrat22",
+  "factorio_version": "2.1",
+  "dependencies": [
+    "base >= 2.1.0",
+    "? Krastorio2 >= 2.1.0",
+    "? Krastorio2-spaced-out",
+    "? Krastorio2-spaced-out-tweaks"
+  ],
+  "description": "A collection of fixes for Krastorio 2 + Spaced Out (K2SO). Currently fixes the biomass pipeline stall: crafted biomass (and fertilizer) no longer inherits parent spoilage, so the recursive 2 -> 5 biomass loop in the bioprocessing facility keeps itself fresh instead of rotting everything at once. Biomass from egg crushing spawns fresh too. Without the K2SO stack installed this mod does nothing."
+}
