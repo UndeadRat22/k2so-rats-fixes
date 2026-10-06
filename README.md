@@ -69,12 +69,6 @@ your mods directory, fully isolated in a temp work dir:
 The test uses `--scenario2map` + `--benchmark`, writes a JSON report and
 exits non-zero on any mismatch.
 
-## Credits
-
-The thumbnail is derived from the Krastorio 2 biomass icon
-([Krastorio2Assets](https://mods.factorio.com/mod/Krastorio2Assets),
-CC BY-NC-SA 4.0).
-
 ## Notes
 
 - Safe to add or remove on existing saves: it only changes recipe product
