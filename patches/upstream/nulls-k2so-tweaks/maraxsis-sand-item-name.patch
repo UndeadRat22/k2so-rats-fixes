@@ -1,0 +1,11 @@
+--- a/k2so-tweaks/patches/planets/maraxsis.lua
++++ b/k2so-tweaks/patches/planets/maraxsis.lua
+@@ -35,7 +35,7 @@
+ 	-- Update constants to point to the standard sand ID.
+ 	local maraxis_constants = data.raw["mod-data"]["maraxsis-constants"]
+ 	if (maraxis_constants) then
+-		maraxis_constants.SAND_ITEM_NAME = "sand" --- @diagnostic disable-line
++		maraxis_constants.data.SAND_ITEM_NAME = "sand"
+ 	end
+ end
+ 

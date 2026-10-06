@@ -1,0 +1,13 @@
+--- a/fixes/tech_cards.lua
++++ b/fixes/tech_cards.lua
+@@ -30,6 +30,10 @@
+     end
+ 
+     local r = data.raw.recipe[original_name]
++    if not r then
++        log('xy tech-cards: no recipe named '..original_name..', skipping reformat (check fixes/tech_cards_list.lua)')
++        return
++    end
+     local research_data_recipe = table.deepcopy(r)
+ 
+     -- Replace the science pack recipe with a tech card recipe

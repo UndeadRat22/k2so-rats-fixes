@@ -1,0 +1,18 @@
+--- a/prototypes/item.lua
++++ b/prototypes/item.lua
+@@ -6,7 +6,6 @@
+     data.raw["item"]["kr-biomass"].spoil_result = "spoilage"
+     data.raw["item"]["kr-fertilizer"].spoil_ticks = 5 * hour
+     data.raw["item"]["kr-fertilizer"].spoil_result = "spoilage"
+-    data.raw["item"]["kr-fertilizer"].spoil_result = "spoilage"
+ end
+ 
+ function stack_to_ton(stack_size)
+@@ -21,7 +20,6 @@
+     { name = "steel-furnace",                  stacks_per_rocket = 1 },
+     { name = "agricultural-tower",             stacks_per_rocket = 0.5 },
+     { name = "biochamber",                     stacks_per_rocket = 1 },
+-    { name = "kr-advanced-assembling-machine", stacks_per_rocket = 0.25 },
+     { name = "lightning-rod",                  stacks_per_rocket = 2 },
+     { name = "stone-wall",                     stacks_per_rocket = 4 },
+     { name = "kr-advanced-assembling-machine", stacks_per_rocket = 0.2 },

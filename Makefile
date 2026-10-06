@@ -28,6 +28,11 @@ test-e2e:
 test-proto:
 	FACTORIO_BIN="$(FACTORIO_BIN)" sh tests/run-proto.sh --all
 
+# Lua-level checks against the real files inside the installed xy fork zip
+test-lua:
+	lua tests/lua/run-basic-card-strips.lua
+	lua tests/lua/run-workshop-strip.lua
+
 lint:
 	luacheck data-final-fixes.lua fixes/*.lua tests/scenario/biomass-stall/control.lua --no-config || true
 

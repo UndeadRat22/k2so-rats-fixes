@@ -1,0 +1,21 @@
+--- a/k2so-tweaks/util/item.lua
++++ b/k2so-tweaks/util/item.lua
+@@ -30,7 +30,7 @@
+ 	new_entity.hidden_in_factoriopedia = false
+ 
+ 	-- As a help to mid-save changes, make the old item spoil into the new item.
+-	if (new_entity.spoil_result ~= old_entity) then
++	if (new_entity.spoil_result ~= old) then
+ 		old_entity.spoil_result = new
+ 		old_entity.spoil_ticks = 1
+ 	end
+@@ -61,7 +61,8 @@
+ 
+ 	local prototype = prototypes_of_type[name]
+ 	if (prototype == nil) then
+-		util.log("Prototype '%s'/'%s' does not exist.", type_name, name)
++		-- Missing prototypes are expected for mods that are not installed;
++		-- logging each one buries real messages (hundreds of lines).
+ 		return
+ 	end
+ 

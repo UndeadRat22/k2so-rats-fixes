@@ -1,0 +1,12 @@
+--- a/k2so-tweaks/patches/mods/krastorio2-spaced-out.lua
++++ b/k2so-tweaks/patches/mods/krastorio2-spaced-out.lua
+@@ -63,6 +63,9 @@
+ 	if (not data.raw["damage-type"][to_type]) then
+ 		return
+ 	end
++	if (not prototype.resistances) then
++		return
++	end
+ 
+ 	local resistance_from = util.table.find_keyvalues(prototype.resistances, { type = from_type })
+ 	if (not resistance_from) then

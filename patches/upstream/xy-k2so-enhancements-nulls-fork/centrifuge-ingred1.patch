@@ -1,0 +1,10 @@
+--- a/patches/entity.lua
++++ b/patches/entity.lua
+@@ -83,6 +83,6 @@
+         {type = 'item', name = 'refined-concrete', amount = 200},
+         {type = 'item', name = 'kr-energy-control-unit', amount = 50},
+         {type = 'item', name = 'supercapacitor', amount = 20},
+-        {type = 'item', name = 'centrifuge', amount = 4},
++        ingred1, -- computed above: 4x centrifuge, or 2x atan-atom-forge with atan-nuclear-science
+     }
+ end

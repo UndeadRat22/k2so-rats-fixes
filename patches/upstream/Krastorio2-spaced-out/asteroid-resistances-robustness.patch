@@ -1,0 +1,19 @@
+--- a/prototypes/final-fixes/asteroids.lua
++++ b/prototypes/final-fixes/asteroids.lua
+@@ -1,9 +1,14 @@
+ for _, asteroid in pairs(data.raw.asteroid) do
+-	local resistances = asteroid.resistances
++	local resistances = asteroid.resistances or {}
++	asteroid.resistances = resistances
+ 	table.insert(resistances, { type = "kr-radioactive", percent = 100 })
++	local copied = {}
+ 	for _, resist in pairs(resistances) do
+ 		if resist.type == "explosion" then
+-			table.insert(resistances, { type = "kr-explosion", percent = resist.percent })
++			table.insert(copied, { type = "kr-explosion", percent = resist.percent })
+ 		end
+ 	end
++	for _, resist in ipairs(copied) do
++		table.insert(resistances, resist)
++	end
+ end

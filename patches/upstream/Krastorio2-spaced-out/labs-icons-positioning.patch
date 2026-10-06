@@ -1,0 +1,29 @@
+--- a/prototypes/final-fixes/labs-fixes.lua
++++ b/prototypes/final-fixes/labs-fixes.lua
+@@ -61,7 +61,7 @@
+ }
+ --In case there are more than 24 packs available. Should be ok for less than 60 packs
+ if #data.raw.lab["lab"].inputs > 24 then
+-	local size3 = {
++	size3 = {
+ 		{
+ 			inventory_index = defines.inventory.lab_modules,
+ 			shift = { 0, 0.9 },
+@@ -74,7 +74,7 @@
+ 			scale = 0.4,
+ 		},
+ 	}
+-	local size5 = {
++	size5 = {
+ 		{
+ 			inventory_index = defines.inventory.lab_modules,
+ 			shift = { 0, 1.6 },
+@@ -87,7 +87,7 @@
+ 			scale = 0.5,
+ 		},
+ 	}
+-	local size8 = {
++	size8 = {
+ 		{
+ 			inventory_index = defines.inventory.lab_modules,
+ 			shift = { 0, 1.6 },
