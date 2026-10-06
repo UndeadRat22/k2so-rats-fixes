@@ -1,0 +1,6 @@
+# Fixed state: blanket accumulator restrictions removed; K2SO's own
+# gravity rule (and everything else) survives.
+E2E_CHECK::transceiver\.cerys=0
+E2E_CHECK::transceiver\.harenic=0
+E2E_CHECK::transceiver\.temperature=0
+E2E_CHECK::transceiver\.gravity=1

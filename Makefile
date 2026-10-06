@@ -54,7 +54,8 @@ package:
 # changelog.txt is shown by the in-game mod list, thumbnail.png is read by
 # the mod portal, and LICENSE must accompany MIT-licensed distributions.
 # README.md, tests/, scripts/ and the Makefile are repo-only and stay out.
-	@cp -r changelog.txt data-final-fixes.lua info.json LICENSE thumbnail.png $(PACKAGE_DIR)/
+	@cp -r changelog.txt data-final-fixes.lua settings.lua info.json LICENSE thumbnail.png $(PACKAGE_DIR)/
+	@cp -R locale $(PACKAGE_DIR)/ 2>/dev/null || true
 	@[ ! -d fixes ] || cp -r fixes $(PACKAGE_DIR)/
 	@zip -r $(PACKAGE_DIR).zip $(PACKAGE_DIR) >/dev/null
 	@mv $(PACKAGE_DIR).zip $(RELEASES_DIR)/

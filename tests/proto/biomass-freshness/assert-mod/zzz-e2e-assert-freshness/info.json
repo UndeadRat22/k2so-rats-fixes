@@ -1,0 +1,16 @@
+{
+  "name": "zzz-e2e-assert-freshness",
+  "version": "0.0.1",
+  "title": "E2E assert: recipe product freshness",
+  "author": "k2so-rats-fixes tests",
+  "factorio_version": "2.1",
+  "dependencies": [
+    "base",
+    "? Krastorio2-spaced-out",
+    "? Krastorio2-spaced-out-tweaks",
+    "? nulls-k2so-tweaks",
+    "? xy-k2so-enhancements-nulls-fork",
+    "? k2so-rats-fixes"
+  ],
+  "description": "Logs E2E_CHECK markers about always_fresh on the FRESHEN recipe products for tests/run-proto.sh."
+}

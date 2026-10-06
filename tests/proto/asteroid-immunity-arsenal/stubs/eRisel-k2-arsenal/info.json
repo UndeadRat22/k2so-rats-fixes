@@ -1,0 +1,9 @@
+{
+  "name": "eRisel-k2-arsenal",
+  "version": "0.0.1",
+  "title": "E2E stub: eRisel-k2-arsenal presence",
+  "author": "k2so-rats-fixes tests",
+  "factorio_version": "2.1",
+  "dependencies": [ "base" ],
+  "description": "Fabricated stand-in for eRisel-k2-arsenal. The real mod adds kr-radioactive weapons; only its presence matters for the auto asteroid immunity default, so this stub declares no prototypes."
+}

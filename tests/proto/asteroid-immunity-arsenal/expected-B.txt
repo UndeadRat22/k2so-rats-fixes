@@ -1,0 +1,4 @@
+# Fixed state: auto default resolves to 50% with eRisel-k2-arsenal present;
+# every asteroid exactly at the target, none off, none missing the entry.
+E2E_CHECK::arsenal\.at50=[1-9][0-9]*
+E2E_CHECK::arsenal\.off50=0

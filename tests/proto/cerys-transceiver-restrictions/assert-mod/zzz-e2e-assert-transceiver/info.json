@@ -1,0 +1,17 @@
+{
+  "name": "zzz-e2e-assert-transceiver",
+  "version": "0.0.1",
+  "title": "E2E assert: transceiver surface restrictions",
+  "author": "k2so-rats-fixes tests",
+  "factorio_version": "2.1",
+  "dependencies": [
+    "base",
+    "? aaa-e2e-cerys-conditions",
+    "? Krastorio2-spaced-out",
+    "? Krastorio2-spaced-out-tweaks",
+    "? nulls-k2so-tweaks",
+    "? xy-k2so-enhancements-nulls-fork",
+    "? k2so-rats-fixes"
+  ],
+  "description": "Logs E2E_CHECK markers about kr-intergalactic-transceiver surface conditions for tests/run-proto.sh. The optional dependencies pin it after every observed mod in data-final-fixes."
+}

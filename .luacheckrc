@@ -57,6 +57,7 @@ stds.factorio_runtime = {
 }
 
 files["data-final-fixes.lua"].std = "lua52+factorio_data"
+files["settings.lua"].std = "lua52+factorio_data"
 files["fixes/*.lua"].std = "lua52+factorio_data"
 files["tests/proto/**/*.lua"].std = "lua52+factorio_data"
 files["tests/scenario/**/*.lua"].std = "lua52+factorio_runtime"

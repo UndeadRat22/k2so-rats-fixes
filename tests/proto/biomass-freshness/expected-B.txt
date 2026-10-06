@@ -1,0 +1,7 @@
+# Fixed state: all seven products spawn fully fresh.
+E2E_CHECK::freshness\.unfresh=0
+E2E_CHECK::freshness\.fresh=7
+E2E_CHECK::freshness\.missing=0
+E2E_CHECK::freshness\.fresh-entry kr-biomass-from-spoilage -> kr-biomass
+E2E_CHECK::freshness\.fresh-entry kr-jellynut -> jellynut
+E2E_CHECK::freshness\.fresh-entry kr-yumako -> yumako

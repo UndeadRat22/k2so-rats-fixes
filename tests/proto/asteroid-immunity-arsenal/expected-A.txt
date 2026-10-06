@@ -1,0 +1,4 @@
+# Bug state: nulls' standardize overwrote K2SO's 100% with the physical copy
+# (0/10%) - nothing sits at the arsenal-aware 50% target.
+E2E_CHECK::arsenal\.at50=0
+E2E_CHECK::arsenal\.off50=[1-9][0-9]*

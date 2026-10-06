@@ -1,0 +1,7 @@
+# Bug state: every biomass-family recipe product inherits ingredient spoilage.
+E2E_CHECK::freshness\.unfresh=7
+E2E_CHECK::freshness\.fresh=0
+E2E_CHECK::freshness\.missing=0
+E2E_CHECK::freshness\.unfresh-entry kr-biomass-from-spoilage -> kr-biomass
+E2E_CHECK::freshness\.unfresh-entry kr-jellynut -> jellynut
+E2E_CHECK::freshness\.unfresh-entry kr-yumako -> yumako

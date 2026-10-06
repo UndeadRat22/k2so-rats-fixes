@@ -42,6 +42,8 @@ inputs:
 | `kr-biomass` (recursive, bioprocessing facility) | biomass | inherits parent spoilage | full 1 h timer |
 | `kr-biter-biomass`, `kr-pentapod-biomass` (egg crushing) | biomass | inherits egg spoilage | full 1 h timer |
 | `kr-fertilizer` (crafted from biomass) | fertilizer | inherits biomass spoilage | full 5 h timer |
+| `kr-biomass-from-spoilage` (biochamber: jelly + spoilage) | biomass | inherits jelly spoilage | full 1 h timer |
+| `kr-jellynut`, `kr-yumako` (K2SO greenhouses, from fertilizer) | jellynut / yumako | inherits fertilizer spoilage | full 1 h timer |
 
 Verified end-to-end: with the fix, crafting from 90 % spoiled seed biomass
 produces output with `spoil_tick = craft_tick + 216000` (a full 1 h timer),
@@ -52,7 +54,10 @@ the surrounding mods (each with an e2e under `tests/proto/` or `tests/lua/`):
 
 - **asteroid-radioactive-resistance** — keeps K2SO's 100% `kr-radioactive`
   asteroid immunity from being silently erased by nulls-k2so-tweaks'
-  standardize pass; duplicate entries are merged.
+  standardize pass; duplicate entries are merged. The target percent is
+  configurable via the `k2so-rats-fixes-asteroid-radiation-immunity`
+  startup setting; `auto` (default) keeps 100% and uses 50% when
+  eRisel-k2-arsenal (kr-radioactive weapons) is installed.
 - **maraxsis-sand-item-name** — writes maraxsis' `SAND_ITEM_NAME` into the
   mod-data `.data` table it is actually read from, instead of the prototype
   root nulls writes it to; removes the stray root key.
@@ -63,6 +68,10 @@ the surrounding mods (each with an e2e under `tests/proto/` or `tests/lua/`):
   spoils back into the old one.
 - **advanced-centrifuge-atom-forge** — applies xy's computed-but-unused
   `ingred1` (2x atan-atom-forge) so recipe and tech tree agree.
+- **cerys-transceiver-restrictions** — removes accumulator-type blanket
+  surface restrictions (e.g. Cerys' ambient radiation) from the K2
+  intergalactic transceiver, mirroring nulls' teleporter unrestrict; keeps
+  K2SO's own gravity rule. No-op without such conditions.
 
 `patches/upstream/` carries ready-to-apply patches for the same issues in
 the original mods, where forensics credits belong.

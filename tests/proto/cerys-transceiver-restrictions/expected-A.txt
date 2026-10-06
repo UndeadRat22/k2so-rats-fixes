@@ -1,0 +1,6 @@
+# Bug state: the stubbed Cerys blanket restrictions sit on the transceiver
+# (on top of K2SO's own conditions).
+E2E_CHECK::transceiver\.cerys=1
+E2E_CHECK::transceiver\.harenic=1
+E2E_CHECK::transceiver\.temperature=1
+E2E_CHECK::transceiver\.condition cerys-ambient-radiation

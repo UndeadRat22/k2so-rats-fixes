@@ -9,11 +9,36 @@
 -- discarding K2SO's design.
 --
 -- This fix re-asserts K2SO's intent after both mods have run: exactly one
--- kr-radioactive entry per asteroid, at 100%.
+-- kr-radioactive entry per asteroid, at a configurable target percent.
+-- The startup setting k2so-rats-fixes-asteroid-radiation-immunity selects
+-- the target: "auto" (default) keeps K2SO's 100%, or 50% when
+-- eRisel-k2-arsenal is installed, because its late-game weapons deal
+-- kr-radioactive damage and full immunity would invalidate that whole
+-- weapon class against asteroids again. Explicit values (100/75/50/25/0)
+-- always win.
+
+local SETTING_NAME = "k2so-rats-fixes-asteroid-radiation-immunity"
+local ARSENAL_MOD = "eRisel-k2-arsenal"
 
 if not (mods["Krastorio2-spaced-out"] and data.raw["damage-type"] and data.raw["damage-type"]["kr-radioactive"]) then
   return
 end
+
+-- Resolve the target immunity percent from the startup setting.
+local function target_percent()
+  local setting = settings.startup[SETTING_NAME]
+  local value = setting and setting.value or "auto"
+  if value == "auto" then
+    return mods[ARSENAL_MOD] and 50 or 100
+  end
+  local explicit = tonumber(value)
+  if explicit then
+    return explicit
+  end
+  return mods[ARSENAL_MOD] and 50 or 100
+end
+
+local target = target_percent()
 
 local merged = 0
 local removed_duplicates = 0
@@ -35,13 +60,13 @@ for _, asteroid in pairs(data.raw.asteroid or {}) do
       end
     end
     if first_radio then
-      resistances[first_radio].percent = 100
+      resistances[first_radio].percent = target
       resistances[first_radio].decrease = nil
     else
-      table.insert(resistances, { type = "kr-radioactive", percent = 100 })
+      table.insert(resistances, { type = "kr-radioactive", percent = target })
       merged = merged + 1
     end
   end
 end
-log(("[k2so-rats-fixes] restored kr-radioactive immunity on asteroids (inserted %d, deduplicated %d)")
-  :format(merged, removed_duplicates))
+log(("[k2so-rats-fixes] restored kr-radioactive immunity on asteroids at %d%% (inserted %d, deduplicated %d)")
+  :format(target, merged, removed_duplicates))

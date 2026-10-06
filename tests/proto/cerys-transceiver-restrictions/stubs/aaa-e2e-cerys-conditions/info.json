@@ -1,0 +1,9 @@
+{
+  "name": "aaa-e2e-cerys-conditions",
+  "version": "0.0.1",
+  "title": "E2E stub: Cerys accumulator blanket restrictions",
+  "author": "k2so-rats-fixes tests",
+  "factorio_version": "2.1",
+  "dependencies": [ "base", "Krastorio2-spaced-out" ],
+  "description": "Stand-in for Cerys-Moon-of-Fulgora's accumulator restriction pass (prototypes/override/entity.lua): Cerys blanket-restricts every accumulator to ambient-radiation-free surfaces, exempting cerys-charging-rod and kr-planetary-teleporter - the intergalactic transceiver is not on that list."
+}

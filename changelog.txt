@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.0
+Date: 2026-10-06
+  Features:
+    - Asteroid radiation immunity is configurable via the k2so-rats-fixes-asteroid-radiation-immunity startup setting (auto/100/75/50/25/0). Auto keeps K2SO's 100% and uses 50% when eRisel-k2-arsenal (kr-radioactive weapons) is installed.
+    - The K2 intergalactic transceiver can be built on Cerys again: Cerys blanket-restricts accumulators on its surface and the transceiver is an accumulator; its ambient-radiation restriction is removed (conditionally - a no-op without Cerys-style conditions).
+  Bugfixes:
+    - Biomass crafted via kr-biomass-from-spoilage (biochamber: jelly + spoilage) spawns fresh; the jelly ingredient's age no longer bleeds into the biomass pipeline.
+    - Greenhouse-grown Gleba crops (kr-jellynut, kr-yumako) spawn fresh instead of inheriting the fertilizer's spoilage age.
+---------------------------------------------------------------------------------------------------
 Version: 1.1.0
 Date: 2026-10-06
   Bugfixes:

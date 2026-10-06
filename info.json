@@ -1,6 +1,6 @@
 {
   "name": "k2so-rats-fixes",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "K2SO Rat's Fixes",
   "author": "deadrat22",
   "factorio_version": "2.1",
@@ -12,5 +12,5 @@
     "? nulls-k2so-tweaks",
     "? xy-k2so-enhancements-nulls-fork"
   ],
-  "description": "A collection of fixes for Krastorio 2 + Spaced Out (K2SO). Fixes the biomass pipeline stall (crafted biomass and fertilizer spawn fresh), keeps asteroids kr-radioactive immune, makes maraxsis read the intended sand item, applies K2SO's >24-pack lab icon layout, breaks two-item spoil cycles from item migration fixes, and makes the advanced centrifuge recipe consume atan-atom-forges. Without the K2SO stack installed this mod does nothing."
+  "description": "A collection of fixes for Krastorio 2 + Spaced Out (K2SO). Fixes the biomass pipeline stall (crafted biomass and fertilizer spawn fresh), keeps asteroids kr-radioactive immune (configurable; auto 50% with eRisel-k2-arsenal), makes maraxsis read the intended sand item, applies K2SO's >24-pack lab icon layout, breaks two-item spoil cycles from item migration fixes, makes the advanced centrifuge recipe consume atan-atom-forges, and lets the intergalactic transceiver be built on Cerys. Without the K2SO stack installed this mod does nothing."
 }

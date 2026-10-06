@@ -21,12 +21,18 @@
 
 local FRESHEN = {
   -- recursive bioprocessing facility recipe (the reported stall)
-  { recipe = "kr-biomass",           product = "kr-biomass" },
+  { recipe = "kr-biomass",              product = "kr-biomass" },
   -- egg crushing (eggs spoil too)
-  { recipe = "kr-biter-biomass",     product = "kr-biomass" },
-  { recipe = "kr-pentapod-biomass",  product = "kr-biomass" },
+  { recipe = "kr-biter-biomass",        product = "kr-biomass" },
+  { recipe = "kr-pentapod-biomass",     product = "kr-biomass" },
   -- fertilizer is crafted from biomass and inherits its spoilage
-  { recipe = "kr-fertilizer",        product = "kr-fertilizer" },
+  { recipe = "kr-fertilizer",           product = "kr-fertilizer" },
+  -- biochamber entry point: jelly (4 min spoil) + spoilage -> biomass
+  { recipe = "kr-biomass-from-spoilage", product = "kr-biomass" },
+  -- K2SO greenhouses: the crops would inherit the (spoiling) fertilizer's
+  -- age, but Gleba crops only last an hour
+  { recipe = "kr-jellynut",             product = "jellynut" },
+  { recipe = "kr-yumako",               product = "yumako" },
 }
 
 local patched = 0
@@ -53,3 +59,4 @@ require("fixes.maraxsis-sand-item-name")
 require("fixes.lab-icons-positioning")
 require("fixes.spoil-migration-cycles")
 require("fixes.advanced-centrifuge-atom-forge")
+require("fixes.cerys-transceiver-restrictions")
