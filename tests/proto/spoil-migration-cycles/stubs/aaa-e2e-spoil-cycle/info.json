@@ -1,0 +1,9 @@
+{
+  "name": "aaa-e2e-spoil-cycle",
+  "version": "0.0.1",
+  "title": "E2E stub: two-item spoil cycle",
+  "author": "k2so-rats-fixes tests",
+  "factorio_version": "2.1",
+  "dependencies": [ "base" ],
+  "description": "Fabricates the end state nulls' dead guard would produce if a replaced item's replacement spoiled back: a two-item spoil cycle with a 1-tick migration side."
+}

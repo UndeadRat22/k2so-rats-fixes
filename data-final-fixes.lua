@@ -51,3 +51,4 @@ end
 require("fixes.asteroid-radioactive-resistance")
 require("fixes.maraxsis-sand-item-name")
 require("fixes.lab-icons-positioning")
+require("fixes.spoil-migration-cycles")

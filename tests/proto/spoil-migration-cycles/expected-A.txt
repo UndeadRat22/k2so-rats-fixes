@@ -1,0 +1,4 @@
+# Bug state: the fabricated cycle is intact (this is the end state nulls'
+# always-true guard produces whenever a replacement item spoils back).
+E2E_CHECK::spoil\.e2e-spoil-a=e2e-spoil-b@1
+E2E_CHECK::spoil\.e2e-spoil-b=e2e-spoil-a@42

@@ -1,0 +1,6 @@
+# Fixed state: migration side of the cycle cleared; natural spoil of b
+# kept; control pair (no cycle) untouched.
+E2E_CHECK::spoil\.e2e-spoil-a=nil@nil
+E2E_CHECK::spoil\.e2e-spoil-b=e2e-spoil-a@42
+E2E_CHECK::spoil\.e2e-spoil-c=e2e-spoil-d@1
+E2E_CHECK::spoil\.e2e-spoil-d=nil@nil
