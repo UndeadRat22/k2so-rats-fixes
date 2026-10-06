@@ -1,0 +1,23 @@
+--- a/patches/technology.lua
++++ b/patches/technology.lua
+@@ -108,10 +108,19 @@
+         if not tech.unit then
+             goto continueWorkshop
+         end
++        -- Decide AFTER scanning: remove_cards must only run when the tech
++        -- has no automation pack at all. Calling it inside the scan loop
++        -- stripped workshop-science-pack from techs that legitimately
++        -- contain automation-science-pack whenever automation was not the
++        -- first ingredient listed.
++        local has_automation_pack = false
+         for _, val in pairs(tech.unit.ingredients) do
+             if val[1] == 'automation-science-pack' then
+-                goto continueWorkshop
++                has_automation_pack = true
++                break
+             end
++        end
++        if not has_automation_pack then
+             remove_cards(tech.name, {'workshop-science-pack'})
+         end
+         ::continueWorkshop::
