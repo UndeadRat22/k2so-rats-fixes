@@ -37,7 +37,7 @@ test-patches:
 	sh tests/check-upstream-patches.sh
 
 lint:
-	luacheck data-final-fixes.lua fixes/*.lua tests/scenario/biomass-stall/control.lua --no-config || true
+	luacheck .
 
 thumbnail:
 	@mkdir -p scripts/.src

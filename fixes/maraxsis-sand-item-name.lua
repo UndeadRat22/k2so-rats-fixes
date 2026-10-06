@@ -20,4 +20,5 @@ end
 constants.data = constants.data or {}
 constants.data.SAND_ITEM_NAME = "sand" --- @diagnostic disable-line
 constants.SAND_ITEM_NAME = nil
-log("[k2so-rats-fixes] maraxsis-constants: wrote SAND_ITEM_NAME='sand' to .data and removed the stray prototype-root key")
+log("[k2so-rats-fixes] maraxsis-constants: wrote SAND_ITEM_NAME='sand' to .data "
+  .. "and removed the stray prototype-root key")

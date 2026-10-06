@@ -85,6 +85,7 @@ make test-e2e      # gameplay benchmark (biomass pipeline)
 make test-proto    # data-stage checks for every fixes/* entry
 make test-lua      # lua-level checks against the real xy fork zip
 make test-patches  # patches/upstream apply-check against installed zips
+make lint          # luacheck (needs the lua@5.4 build, see .luacheckrc)
 ```
 
 Runs the real game headless (no window) against the full K2SO mod stack

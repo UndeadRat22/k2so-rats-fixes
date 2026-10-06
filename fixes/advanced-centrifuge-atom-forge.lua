@@ -25,6 +25,7 @@ for _, ingredient in ipairs(recipe.ingredients) do
   if (ingredient.type == "item" and ingredient.name == "centrifuge") then
     ingredient.name = "atan-atom-forge"
     ingredient.amount = 2
-    log("[k2so-rats-fixes] k11-advanced-centrifuge: applied xy's computed atan-atom-forge ingredient (was 4x centrifuge)")
+    log("[k2so-rats-fixes] k11-advanced-centrifuge: applied xy's computed atan-atom-forge ingredient "
+      .. "(was 4x centrifuge)")
   end
 end

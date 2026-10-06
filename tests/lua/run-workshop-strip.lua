@@ -13,9 +13,10 @@ local script_dir = arg[0]:gsub("[^%/]*$", "")
 package.path = script_dir .. "?.lua;" .. package.path
 local env_mod = require("xy-env")
 
-local zip = arg[1]
-  or (os.getenv("HOME") .. "/Library/Application Support/factorio/mods/xy-k2so-enhancements-nulls-fork_0.8.5.zip")
-local patch_file = script_dir:gsub("tests/lua/$", "patches/upstream/xy-k2so-enhancements-nulls-fork/workshop-strip.patch")
+local MODS_DIR = os.getenv("HOME") .. "/Library/Application Support/factorio/mods"
+local zip = arg[1] or (MODS_DIR .. "/xy-k2so-enhancements-nulls-fork_0.8.5.zip")
+local patch_file = script_dir:gsub("tests/lua/$",
+  "patches/upstream/xy-k2so-enhancements-nulls-fork/workshop-strip.patch")
 if patch_file:sub(1, 1) ~= "/" then
   local pwd = assert(io.popen("pwd")):read("l")
   patch_file = pwd .. "/" .. patch_file
@@ -83,11 +84,15 @@ local function run_xy_technology_lua(tech_source)
   return techs
 end
 
+local function report(tag, tech)
+  print(("E2E_CHECK::%s=%s"):format(tag, has_card(tech.unit, "workshop-science-pack") and "kept" or "stripped"))
+end
+
 -- Original, straight from the installed zip.
 local orig = run_xy_technology_lua(env_mod.read_zip_member(zip, "patches/technology.lua"))
-print("E2E_CHECK::orig.t1_basic=" .. tostring(has_card(orig["e2e-basic"].unit, "workshop-science-pack") and "kept" or "stripped"))
-print("E2E_CHECK::orig.t2_auto_first=" .. tostring(has_card(orig["e2e-auto-first"].unit, "workshop-science-pack") and "kept" or "stripped"))
-print("E2E_CHECK::orig.t3_auto_second=" .. tostring(has_card(orig["e2e-auto-second"].unit, "workshop-science-pack") and "kept" or "stripped"))
+report("orig.t1_basic", orig["e2e-basic"])
+report("orig.t2_auto_first", orig["e2e-auto-first"])
+report("orig.t3_auto_second", orig["e2e-auto-second"])
 
 -- Intended strips must already work, and the over-strip must be present.
 if has_card(orig["e2e-basic"].unit, "workshop-science-pack") then
@@ -105,17 +110,18 @@ print("E2E_CHECK::orig.bug=demonstrated")
 local tmp = os.tmpname()
 os.remove(tmp)
 assert(os.execute(string.format("mkdir -p %q && unzip -q %q -d %q", tmp, zip, tmp)))
-local ok = os.execute(string.format("cd %q && patch -s -p1 < %q", tmp .. "/xy-k2so-enhancements-nulls-fork_0.8.5", patch_file))
+local mod_root = tmp .. "/xy-k2so-enhancements-nulls-fork_0.8.5"
+local ok = os.execute(string.format("cd %q && patch -s -p1 < %q", mod_root, patch_file))
 if not ok then fail("patch does not apply cleanly against the installed zip") end
-local top = tmp .. "/xy-k2so-enhancements-nulls-fork_0.8.5/patches/technology.lua"
+local top = mod_root .. "/patches/technology.lua"
 local fh = assert(io.open(top, "r"))
 local patched_source = assert(fh:read("a"))
 fh:close()
 
 local patched = run_xy_technology_lua(patched_source)
-print("E2E_CHECK::patched.t1_basic=" .. tostring(has_card(patched["e2e-basic"].unit, "workshop-science-pack") and "kept" or "stripped"))
-print("E2E_CHECK::patched.t2_auto_first=" .. tostring(has_card(patched["e2e-auto-first"].unit, "workshop-science-pack") and "kept" or "stripped"))
-print("E2E_CHECK::patched.t3_auto_second=" .. tostring(has_card(patched["e2e-auto-second"].unit, "workshop-science-pack") and "kept" or "stripped"))
+report("patched.t1_basic", patched["e2e-basic"])
+report("patched.t2_auto_first", patched["e2e-auto-first"])
+report("patched.t3_auto_second", patched["e2e-auto-second"])
 
 if has_card(patched["e2e-basic"].unit, "workshop-science-pack") then
   fail("patched version no longer strips workshop from automation-free techs")
