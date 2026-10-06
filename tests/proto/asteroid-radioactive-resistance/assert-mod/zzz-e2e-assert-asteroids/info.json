@@ -1,0 +1,16 @@
+{
+  "name": "zzz-e2e-assert-asteroids",
+  "version": "0.0.1",
+  "title": "E2E assert: asteroid radioactive resistance",
+  "author": "k2so-rats-fixes tests",
+  "factorio_version": "2.1",
+  "dependencies": [
+    "base",
+    "? Krastorio2-spaced-out",
+    "? Krastorio2-spaced-out-tweaks",
+    "? nulls-k2so-tweaks",
+    "? xy-k2so-enhancements-nulls-fork",
+    "? k2so-rats-fixes"
+  ],
+  "description": "Logs E2E_CHECK markers about kr-radioactive asteroid resistances for tests/run-proto.sh. The optional dependencies pin it after every observed mod in data-final-fixes."
+}

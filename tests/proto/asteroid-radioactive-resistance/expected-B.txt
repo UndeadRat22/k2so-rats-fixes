@@ -1,0 +1,3 @@
+# Fixed state: every asteroid back at exactly 100%, no duplicate entries.
+E2E_CHECK::asteroids\.vulnerable=0
+E2E_CHECK::asteroids\.duplicate_radio=0

@@ -1,0 +1,3 @@
+# Bug state: nulls-k2so-tweaks overwrites K2SO's 100% immunity with the
+# physical copy; at least one asteroid must deviate.
+E2E_CHECK::asteroids\.vulnerable=[1-9][0-9]*

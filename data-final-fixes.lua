@@ -47,3 +47,5 @@ log("[k2so-rats-fixes] freshened " .. patched .. " recipe products")
 if patched == 0 then
   log("[k2so-rats-fixes] nothing to patch; are Krastorio2/Krastorio2-spaced-out enabled?")
 end
+
+require("fixes.asteroid-radioactive-resistance")
