@@ -1,0 +1,9 @@
+{
+  "name": "atan-nuclear-science",
+  "version": "0.0.1",
+  "title": "E2E stub: atan atom forge + nuclear science tech",
+  "author": "k2so-rats-fixes tests",
+  "factorio_version": "2.1",
+  "dependencies": [ "base" ],
+  "description": "Fabricated stand-in for atan-nuclear-science providing the atan-atom-forge item and nuclear-science-pack/atan-atom-forge technologies."
+}

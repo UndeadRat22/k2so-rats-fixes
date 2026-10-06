@@ -1,0 +1,3 @@
+# Fixed state: the recipe consumes the atom forges the tech tree points at.
+E2E_CHECK::advcent\.ingredient\.centrifuge=nil
+E2E_CHECK::advcent\.ingredient\.atan-atom-forge=2

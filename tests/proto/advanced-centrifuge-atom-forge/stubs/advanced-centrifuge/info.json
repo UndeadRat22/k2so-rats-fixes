@@ -1,0 +1,9 @@
+{
+  "name": "advanced-centrifuge",
+  "version": "0.0.1",
+  "title": "E2E stub: k11-advanced-centrifuge",
+  "author": "k2so-rats-fixes tests",
+  "factorio_version": "2.1",
+  "dependencies": [ "base", "Krastorio2-spaced-out" ],
+  "description": "Fabricated stand-in for the real advanced-centrifuge mod so xy's rebalance path can be exercised without installing it."
+}

@@ -1,0 +1,18 @@
+{
+  "name": "zzz-e2e-assert-advcent",
+  "version": "0.0.1",
+  "title": "E2E assert: advanced centrifuge atan ingredient",
+  "author": "k2so-rats-fixes tests",
+  "factorio_version": "2.1",
+  "dependencies": [
+    "base",
+    "? advanced-centrifuge",
+    "? atan-nuclear-science",
+    "? Krastorio2-spaced-out",
+    "? Krastorio2-spaced-out-tweaks",
+    "? nulls-k2so-tweaks",
+    "? xy-k2so-enhancements-nulls-fork",
+    "? k2so-rats-fixes"
+  ],
+  "description": "Logs E2E_CHECK markers about k11-advanced-centrifuge ingredients for tests/run-proto.sh."
+}

@@ -1,0 +1,4 @@
+# Bug state: xy swapped the tech prereqs but the recipe still eats plain
+# centrifuges (its computed 'ingred1' variable is never used).
+E2E_CHECK::advcent\.ingredient\.centrifuge=4
+E2E_CHECK::advcent\.ingredient\.atan-atom-forge=nil
