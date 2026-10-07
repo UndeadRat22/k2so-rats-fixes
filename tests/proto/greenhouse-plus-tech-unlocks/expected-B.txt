@@ -1,0 +1,6 @@
+# Fixed: the tree greenhouse unlock effects are re-attached to the surviving
+# kr-greenhouse technology; the Gleba variants keep their own unlocks.
+E2E_CHECK::unlockers\.k2gp-greenhouse-for-tree=kr-greenhouse$
+E2E_CHECK::unlockers\.k2gp-greenhouse-tree-growth=kr-greenhouse$
+E2E_CHECK::unlockers\.k2gp-greenhouse-for-yumako-tree=artificial-soil$
+E2E_CHECK::unlockers\.k2gp-greenhouse-for-sunnycomb=agriculture$

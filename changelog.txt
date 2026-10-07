@@ -3,6 +3,7 @@ Version: 1.4.0
 Date: 2026-10-07
   Features:
     - k2-greenhouse-plus support: when it provides its own sand and glass (its default) and Krastorio 2 is installed, the duplicate k2gp-sand/k2gp-glass chain is unified into K2's kr-sand/kr-glass: greenhouse building recipes use 20x kr-glass (the rate the greenhouse-plus author sets for K2 glass), the duplicate sand/glass recipes and their technology unlocks are removed, and the orphaned k2gp items are hidden. Controlled by the new k2so-rats-fixes-greenhouse-plus-k2-glass startup setting (on by default); respects the other mod's glass-source setting when set to "other"/"disabled". Verified by a gameplay e2e (greenhouse crafting + recycling against the real mods) on top of the data-stage checks.
+    - The k2-greenhouse-plus tree greenhouse is craftable in the K2SO stack again: k2gp hooks its unlock onto K2's kr-greenhouse technology, but K2SO replaces that technology in its final fixes and the hook is discarded with it - no technology unlocked the greenhouse (or its crop recipe), leaving it uncraftable. The unlock effects are re-attached to the surviving technology; the Gleba greenhouse variants hook onto base Space Age technologies and were never affected.
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.0
 Date: 2026-10-06

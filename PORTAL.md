@@ -31,6 +31,7 @@ With this mod, crafted biomass always spawns with a **full spoil timer**:
 - **Labs render correctly with more than 24 science packs.** K2SO ships a widened icon layout for this case, but it was shadowed by block-local declarations and never ran.
 - **Maraxsis reads the intended sand item.** nulls-k2so-tweaks wrote its `SAND_ITEM_NAME` onto the mod-data prototype root instead of the `.data` table maraxsis actually reads.
 - **k2-greenhouse-plus uses K2's sand and glass.** Its default config ships a private `k2gp-sand`/`k2gp-glass` chain duplicating K2's identical one; greenhouses are built from `kr-glass` instead (at the author's own K2 rate), and the duplicate recipes/unlocks/items are removed from play. On by default, configurable via a startup setting; respects the other mod's glass-source setting.
+- **k2-greenhouse-plus greenhouses are craftable in the K2SO stack.** The tree greenhouse hooks its unlock onto K2's `kr-greenhouse` technology, which K2SO replaces in its final fixes — discarding the hook and leaving the greenhouse uncraftable; the unlock is re-attached to the surviving technology. The Gleba greenhouse variants were never affected.
 - **Two-item spoil cycles from nulls' item migrations are broken.** Its replacement guard is always true, so a new item that spoils back into the old one loops forever; the migration side is now cleared when that happens.
 - **The advanced centrifuge recipe consumes 2x atan-atom-forge** when atan-nuclear-science is present, matching the technology tree (the xy fork computed the ingredient but never used it).
 

@@ -82,6 +82,12 @@ the surrounding mods (each with an e2e under `tests/proto/` or `tests/lua/`):
   `k2so-rats-fixes-greenhouse-plus-k2-glass` startup setting (on by
   default); respects the other mod's own glass-source setting when set to
   "other"/"disabled".
+- **greenhouse-plus-tech-unlocks** — re-attaches k2-greenhouse-plus' tree
+  greenhouse unlock to the surviving `kr-greenhouse` technology: k2gp hooks
+  it onto K2's technology, which K2SO replaces in its final fixes,
+  discarding the hook - measured on the real stack, no technology unlocked
+  the greenhouse, leaving it uncraftable. The Gleba greenhouse variants
+  hook onto base Space Age technologies and are unaffected.
 
 `patches/upstream/` carries ready-to-apply patches for the same issues in
 the original mods, where forensics credits belong.

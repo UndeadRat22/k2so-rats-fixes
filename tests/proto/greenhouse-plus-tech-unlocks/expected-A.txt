@@ -1,0 +1,8 @@
+# Bug state: no technology unlocks the tree greenhouse - k2gp's hook onto
+# K2's kr-greenhouse technology was discarded when K2SO replaced the
+# technology in its final fixes.
+E2E_CHECK::unlockers\.k2gp-greenhouse-for-tree=$
+E2E_CHECK::unlockers\.k2gp-greenhouse-tree-growth=$
+# The Gleba variants hook onto base Space Age techs and survive untouched:
+E2E_CHECK::unlockers\.k2gp-greenhouse-for-yumako-tree=artificial-soil$
+E2E_CHECK::unlockers\.k2gp-greenhouse-for-sunnycomb=agriculture$

@@ -1,0 +1,14 @@
+{
+  "name": "zzz-e2e-assert-k2gp-unlocks",
+  "version": "0.0.1",
+  "title": "E2E assert: greenhouse-plus tech unlocks",
+  "author": "k2so-rats-fixes tests",
+  "factorio_version": "2.1",
+  "dependencies": [
+    "base",
+    "? Krastorio2",
+    "? k2-greenhouse-plus",
+    "? k2so-rats-fixes"
+  ],
+  "description": "Logs E2E_CHECK markers about k2gp greenhouse recipe unlock-recipe effects for tests/run-proto.sh."
+}

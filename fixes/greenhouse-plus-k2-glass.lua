@@ -6,16 +6,20 @@
 -- k2gp-glass, and the recipes are meant to unlock from the greenhouse
 -- technology. With Krastorio 2 installed that duplicates K2's identical
 -- kr-sand -> kr-glass chain: two sands and two glasses with one purpose each.
--- (In the K2SO stack the duplicates are even dead content: k2gp's data.lua
--- hooks the K2 unlock onto the kr-greenhouse technology, which K2SO only
--- creates in data-final-fixes - after k2gp has already given up on it.)
+-- (In the K2SO stack the chain is live from the start of the game: k2gp
+-- leaves the recipes' `enabled` flag unset, and Factorio defaults recipes
+-- to enabled - the duplicate sits in the crafting menu before any
+-- research. The tech-gated part that does misfire - the unlock hook onto
+-- K2's kr-greenhouse technology, discarded when K2SO replaces that
+-- technology in its final fixes - is handled by
+-- fixes/greenhouse-plus-tech-unlocks.lua.)
 --
 -- This fix unifies the chains into K2's, mirroring what the mod itself does
 -- when its glass setting is "other" and K2 provides glass:
 --   * greenhouse building recipes take 20x kr-glass (the author's own K2
 --     rate) instead of 24x k2gp-glass;
 --   * the k2gp-sand / k2gp-glass recipes and their technology unlocks are
---     removed, along with generated wrappers of the dead chain (item
+--     removed, along with generated wrappers of the removed chain (item
 --     recycling, K2SO kr-crush-*): with the chain gone its items are
 --     unobtainable, so a recipe consuming them is junk, and swapping the
 --     wrappers instead would just duplicate the existing kr-* variants;
