@@ -72,6 +72,16 @@ the surrounding mods (each with an e2e under `tests/proto/` or `tests/lua/`):
   surface restrictions (e.g. Cerys' ambient radiation) from the K2
   intergalactic transceiver, mirroring nulls' teleporter unrestrict; keeps
   K2SO's own gravity rule. No-op without such conditions.
+- **greenhouse-plus-k2-glass** — unifies k2-greenhouse-plus' private
+  `k2gp-sand`/`k2gp-glass` chain into K2's identical `kr-sand`/`kr-glass`
+  when the mod provides its own glass (its default): greenhouse building
+  recipes take 20x `kr-glass` (the rate the greenhouse-plus author sets for
+  K2 glass), the duplicate sand/glass recipes and their technology unlocks
+  are removed, and the orphaned k2gp items are hidden rather than deleted so
+  existing saves keep anything already crafted. Configurable via the
+  `k2so-rats-fixes-greenhouse-plus-k2-glass` startup setting (on by
+  default); respects the other mod's own glass-source setting when set to
+  "other"/"disabled".
 
 `patches/upstream/` carries ready-to-apply patches for the same issues in
 the original mods, where forensics credits belong.
@@ -90,8 +100,9 @@ make test-e2e
 ```
 
 ```
-make test-e2e      # gameplay benchmark (biomass pipeline)
-make test-proto    # data-stage checks for every fixes/* entry
+make test-e2e              # gameplay benchmark (biomass pipeline)
+make test-e2e-greenhouse   # gameplay benchmark (greenhouse crafting + recycling)
+make test-proto            # data-stage checks for every fixes/* entry
 make test-lua      # lua-level checks against the real xy fork zip
 make test-patches  # patches/upstream apply-check against installed zips
 make lint          # luacheck (needs the lua@5.4 build, see .luacheckrc)
@@ -111,8 +122,10 @@ exits non-zero on any mismatch.
 
 ## Notes
 
-- Safe to add or remove on existing saves: it only changes recipe product
-  properties, no prototypes are added, removed or renamed.
+- Safe to add or remove on existing saves: the biomass part only changes
+  recipe product properties; the greenhouse-plus unification hides its two
+  duplicate items (already-crafted ones survive) and removes only the
+  duplicate recipes, so toggling it mid-save is also safe.
 - Biomass already sitting on belts or in chests keeps its current age; only
   newly crafted biomass spawns fresh. The loop flushes itself out after a
   few cycles.

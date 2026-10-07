@@ -1,4 +1,4 @@
-.PHONY: test-e2e test-proto test-lua test-patches lint thumbnail package install
+.PHONY: test-e2e test-e2e-greenhouse test-proto test-lua test-patches lint thumbnail package install
 
 # Path to the Factorio binary (auto-detected from Steam install on macOS)
 FACTORIO_BIN ?= $(HOME)/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/MacOS/factorio
@@ -24,6 +24,9 @@ endif
 
 test-e2e:
 	FACTORIO_BIN="$(FACTORIO_BIN)" sh tests/run-e2e.sh
+
+test-e2e-greenhouse:
+	FACTORIO_BIN="$(FACTORIO_BIN)" sh tests/run-e2e-greenhouse.sh
 
 test-proto:
 	FACTORIO_BIN="$(FACTORIO_BIN)" sh tests/run-proto.sh --all

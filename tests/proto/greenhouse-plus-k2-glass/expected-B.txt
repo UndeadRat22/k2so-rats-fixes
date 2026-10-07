@@ -1,0 +1,12 @@
+# Fixed state: the chain is unified into K2's — greenhouses consume 20x
+# kr-glass, the duplicate recipes and their tech unlocks are gone and both
+# orphaned items are hidden.
+E2E_CHECK::greenhouse-for-tree\.glass=kr-glass/20
+E2E_CHECK::greenhouse-for-yumako-tree\.glass=kr-glass/20
+E2E_CHECK::recipe\.k2gp-sand=missing
+E2E_CHECK::recipe\.k2gp-glass=missing
+E2E_CHECK::tech-unlocks\.k2gp-sand=0
+E2E_CHECK::tech-unlocks\.k2gp-glass=0
+E2E_CHECK::item\.k2gp-sand\.hidden=true
+E2E_CHECK::item\.k2gp-glass\.hidden=true
+E2E_CHECK::recipes-referencing-k2gp-items=0

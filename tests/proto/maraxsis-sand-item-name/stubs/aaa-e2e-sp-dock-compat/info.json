@@ -1,0 +1,12 @@
+{
+  "name": "aaa-e2e-sp-dock-compat",
+  "version": "0.0.1",
+  "title": "E2E shim: SpidertronPatrols circuit_connector",
+  "author": "k2so-rats-fixes tests",
+  "factorio_version": "2.1",
+  "dependencies": [
+    "base",
+    "? SpidertronPatrols"
+  ],
+  "description": "Wraps SpidertronPatrols 2.7.0's single-table circuit_connector on sp-spidertron-dock (proxy-container) into a list, which Factorio 2.1 requires for that prototype type. Test-sandbox shim only."
+}

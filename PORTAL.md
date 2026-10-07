@@ -10,7 +10,7 @@ markdown implementation; nested structures and tables are avoided.
 
 # K2SO Rat's Fixes
 
-A stack-audit bugfix collection for [Krastorio 2](https://mods.factorio.com/mod/Krastorio2) + Space Age (K2SO): fixes for [Krastorio 2 Spaced Out](https://mods.factorio.com/mod/Krastorio2-spaced-out), its [tweaks mod](https://mods.factorio.com/mod/Krastorio2-spaced-out-tweaks), nulls-k2so-tweaks and the xy-k2so-enhancements fork playing together.
+A stack-audit bugfix collection for [Krastorio 2](https://mods.factorio.com/mod/Krastorio2) + Space Age (K2SO): fixes for [Krastorio 2 Spaced Out](https://mods.factorio.com/mod/Krastorio2-spaced-out), its [tweaks mod](https://mods.factorio.com/mod/Krastorio2-spaced-out-tweaks), nulls-k2so-tweaks and the xy-k2so-enhancements fork playing together, plus [k2-greenhouse-plus](https://mods.factorio.com/mod/k2-greenhouse-plus) integration.
 
 ## The biomass stall (headline fix)
 
@@ -24,17 +24,18 @@ With this mod, crafted biomass always spawns with a **full spoil timer**:
 - `kr-fertilizer` (crafted from biomass)
 - `kr-jellynut`, `kr-yumako` (greenhouse crops grown from fertilizer)
 
-## Other fixes
+## All fixes
 
 - **Asteroids keep their `kr-radioactive` immunity** — nulls-k2so-tweaks' resistance standardization pass silently erased it. Configurable via a startup setting: *auto* (default) keeps K2SO's 100% and drops to 50% when `eRisel-k2-arsenal` (kr-radioactive weapons) is installed; explicit 100/75/50/25/0 values are also available.
 - **The K2 intergalactic transceiver can be built on Cerys again.** Cerys blanket-restricts accumulators on its surface and the transceiver is an accumulator; the ambient-radiation restriction is removed (K2SO's own gravity rule is kept). No-op on other surfaces / without such conditions.
 - **Labs render correctly with more than 24 science packs.** K2SO ships a widened icon layout for this case, but it was shadowed by block-local declarations and never ran.
 - **Maraxsis reads the intended sand item.** nulls-k2so-tweaks wrote its `SAND_ITEM_NAME` onto the mod-data prototype root instead of the `.data` table maraxsis actually reads.
+- **k2-greenhouse-plus uses K2's sand and glass.** Its default config ships a private `k2gp-sand`/`k2gp-glass` chain duplicating K2's identical one; greenhouses are built from `kr-glass` instead (at the author's own K2 rate), and the duplicate recipes/unlocks/items are removed from play. On by default, configurable via a startup setting; respects the other mod's glass-source setting.
 - **Two-item spoil cycles from nulls' item migrations are broken.** Its replacement guard is always true, so a new item that spoils back into the old one loops forever; the migration side is now cleared when that happens.
 - **The advanced centrifuge recipe consumes 2x atan-atom-forge** when atan-nuclear-science is present, matching the technology tree (the xy fork computed the ingredient but never used it).
 
 ## Quality
 
-Every fix is verified against the real mod stack with a headless e2e suite: gameplay benchmark for the biomass pipeline, data-stage checks for every fix, lua-level checks against the installed xy fork, and an apply-checker for the bundled patches. `patches/upstream/` carries ready-to-apply patches for the same issues in the original mods, where the underlying bugs belong.
+Every fix is verified against the real mod stack with a headless e2e suite: gameplay benchmarks (biomass pipeline freshness; greenhouse crafting + recycling of the actual glass items), data-stage checks for every fix, lua-level checks against the installed xy fork, and an apply-checker for the bundled patches. `patches/upstream/` carries ready-to-apply patches for the same issues in the original mods, where the underlying bugs belong.
 
 **Safe on existing saves.** Without the K2SO stack installed this mod does nothing.

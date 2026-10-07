@@ -1,0 +1,14 @@
+{
+  "name": "zzz-e2e-assert-k2gp-glass",
+  "version": "0.0.1",
+  "title": "E2E assert: greenhouse-plus K2 glass unification",
+  "author": "k2so-rats-fixes tests",
+  "factorio_version": "2.1",
+  "dependencies": [
+    "base",
+    "? Krastorio2",
+    "? k2-greenhouse-plus",
+    "? k2so-rats-fixes"
+  ],
+  "description": "Logs E2E_CHECK markers about k2gp-sand/k2gp-glass usage for tests/run-proto.sh."
+}

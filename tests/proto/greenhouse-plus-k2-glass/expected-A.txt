@@ -1,0 +1,15 @@
+# Bug state: k2-greenhouse-plus' default config duplicates K2's sand/glass
+# chain: greenhouses consume 24x k2gp-glass, the private recipes exist and
+# both items sit visible. (In the K2SO stack its K2 tech hook even misfires:
+# k2gp data.lua runs before K2SO data-final-fixes creates the kr-greenhouse
+# technology, so the duplicates were never unlockable in the first place.)
+E2E_CHECK::greenhouse-for-tree\.glass=k2gp-glass/24
+E2E_CHECK::recipe\.k2gp-sand=exists
+E2E_CHECK::recipe\.k2gp-glass=exists
+E2E_CHECK::tech-unlocks\.k2gp-sand=0
+E2E_CHECK::tech-unlocks\.k2gp-glass=0
+E2E_CHECK::item\.k2gp-sand\.hidden=false
+E2E_CHECK::item\.k2gp-glass\.hidden=false
+# 16 on today's stack: the 2 chain recipes + 5 greenhouses + 5 greenhouse
+# recycling + 2 item-recycling + 2 K2SO crusher wrappers of the chain items.
+E2E_CHECK::recipes-referencing-k2gp-items=16
