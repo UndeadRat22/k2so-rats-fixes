@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.0
+Date: 2026-10-08
+  Bugfixes:
+    - Productivity no longer applies to the tweaks mod's kr-spoilage-to-matter (100 spoilage -> 5.2 matter): its exact quantity mirror kr-matter-to-spoilage already disallows productivity, so with productivity modules in the matter plant every round trip multiplied the stock (x1.4 per cycle with four module 3s) - a closed amplification loop turning a seed of spoilage into free exponential matter. Matches K2's own matter library convention; the sink recipe itself is unchanged.
+---------------------------------------------------------------------------------------------------
 Version: 1.4.0
 Date: 2026-10-07
   Features:

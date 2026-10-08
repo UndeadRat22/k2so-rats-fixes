@@ -12,7 +12,7 @@ markdown implementation; nested structures and tables are avoided.
 
 A stack-audit bugfix collection for [Krastorio 2](https://mods.factorio.com/mod/Krastorio2) + Space Age (K2SO): fixes for [Krastorio 2 Spaced Out](https://mods.factorio.com/mod/Krastorio2-spaced-out), its [tweaks mod](https://mods.factorio.com/mod/Krastorio2-spaced-out-tweaks), nulls-k2so-tweaks and the xy-k2so-enhancements fork playing together, plus [k2-greenhouse-plus](https://mods.factorio.com/mod/k2-greenhouse-plus) integration.
 
-## The biomass stall (headline fix)
+## The biomass stall
 
 The tweaks mod makes biomass spoil, and the bioprocessing facility's biomass recipe is recursive (2 biomass + gases → 5 biomass). Crafted items **inherit the parent spoilage**, so loop freshness can only go down and the whole stock expires at the same moment — measured end-to-end, a 90% spoiled seed yields 91.7% spoiled output, then 93.3%, until military science (which needs biomass) starves. The tweaks mod's own fix attempt puts `reset_freshness_on_craft` on the item prototype, where it is a **silent no-op** in Factorio 2.1.
 
@@ -34,6 +34,7 @@ With this mod, crafted biomass always spawns with a **full spoil timer**:
 - **k2-greenhouse-plus greenhouses are craftable in the K2SO stack.** The tree greenhouse hooks its unlock onto K2's `kr-greenhouse` technology, which K2SO replaces in its final fixes — discarding the hook and leaving the greenhouse uncraftable; the unlock is re-attached to the surviving technology. The Gleba greenhouse variants were never affected.
 - **Two-item spoil cycles from nulls' item migrations are broken.** Its replacement guard is always true, so a new item that spoils back into the old one loops forever; the migration side is now cleared when that happens.
 - **The advanced centrifuge recipe consumes 2x atan-atom-forge** when atan-nuclear-science is present, matching the technology tree (the xy fork computed the ingredient but never used it).
+- **The spoilage → matter sink can no longer be amplified by productivity modules.** The tweaks mod enables `allow_productivity` on `kr-spoilage-to-matter` (100 spoilage → 5.2 matter) while its exact quantity mirror `kr-matter-to-spoilage` disallows it; with productivity modules in the matter plant, every round trip multiplies the stock (×1.4 per cycle with four module 3s), turning a seed of spoilage into free exponential matter. K2's own matter library never enables productivity on conversion recipes. The sink itself keeps working.
 
 ## Quality
 

@@ -88,6 +88,16 @@ the surrounding mods (each with an e2e under `tests/proto/` or `tests/lua/`):
   discarding the hook - measured on the real stack, no technology unlocked
   the greenhouse, leaving it uncraftable. The Gleba greenhouse variants
   hook onto base Space Age technologies and are unaffected.
+- **matter-spoilage-productivity** — disables productivity on the tweaks
+  mod's `kr-spoilage-to-matter` (100 spoilage → 5.2 matter). Its exact
+  quantity mirror `kr-matter-to-spoilage` already disallows productivity,
+  so with productivity modules in the matter plant (4 slots, productivity
+  allowed) every round trip multiplies the stock: ×1.4 per cycle with four
+  module 3s, compounding - a closed amplification loop turning a seed of
+  spoilage into free exponential matter (and matter converts into
+  everything). K2's own matter library never enables productivity on
+  conversion recipes; the sink itself keeps working, it just cannot be
+  amplified into a matter printer anymore.
 
 `patches/upstream/` carries ready-to-apply patches for the same issues in
 the original mods, where forensics credits belong.

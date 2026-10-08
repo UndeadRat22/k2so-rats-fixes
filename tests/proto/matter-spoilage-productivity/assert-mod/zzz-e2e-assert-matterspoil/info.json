@@ -1,0 +1,16 @@
+{
+  "name": "zzz-e2e-assert-matterspoil",
+  "version": "0.0.1",
+  "title": "E2E assert: matter spoilage productivity",
+  "author": "k2so-rats-fixes tests",
+  "factorio_version": "2.1",
+  "dependencies": [
+    "base",
+    "? Krastorio2-spaced-out",
+    "? Krastorio2-spaced-out-tweaks",
+    "? nulls-k2so-tweaks",
+    "? xy-k2so-enhancements-nulls-fork",
+    "? k2so-rats-fixes"
+  ],
+  "description": "Logs E2E_CHECK markers about matter <-> spoilage recipe productivity for tests/run-proto.sh."
+}

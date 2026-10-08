@@ -1,0 +1,4 @@
+# Fixed state: both directions of the pair disallow productivity; the
+# loop cannot amplify. The recipes themselves are unchanged.
+E2E_CHECK::matter\.kr-spoilage-to-matter=allow=false
+E2E_CHECK::matter\.kr-matter-to-spoilage=allow=false

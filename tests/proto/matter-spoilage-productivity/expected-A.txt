@@ -1,0 +1,4 @@
+# Bug state: the tweaks mod's spoilage sink allows productivity while its
+# exact quantity mirror does not - the amplification loop is armed.
+E2E_CHECK::matter\.kr-spoilage-to-matter=allow=true
+E2E_CHECK::matter\.kr-matter-to-spoilage=allow=false
